@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var multer = require('multer')
+var upload = multer({dest: 'uploads/'})
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -39,8 +40,8 @@ app.post('/body', function(req, res) {
   console.log(req.body)
   res.end(JSON.stringify(req.body)+'\n')
 })
-app.post('/upload', function(req, res) {
-  console.log(req.files.archive)
+app.post('/upload', upload.single('archive'), function(req, res) {
+  console.log(req.file)
   // read path
   // process data
   // save processed data

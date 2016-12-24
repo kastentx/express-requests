@@ -39,6 +39,13 @@ app.post('/body', function(req, res) {
   console.log(req.body)
   res.end(JSON.stringify(req.body)+'\n')
 })
+app.post('/upload', function(req, res) {
+  console.log(req.files.archive)
+  // read path
+  // process data
+  // save processed data
+  res.end()
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

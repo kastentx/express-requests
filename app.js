@@ -33,6 +33,7 @@ app.get('/search', function(req, res) {
 })
 app.get('/params/:role/:name/:status', function(req, res) {
   console.log(req.params)
+  console.log(req.route)
   res.end()
 })
 
